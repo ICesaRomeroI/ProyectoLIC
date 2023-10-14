@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <title>Calendario</title>
+</head>
+<body>
+    <header>
+        <div class="Dlogo">
+            <img src="../IMG/The_Beatles_logo.png" alt="logo" class="logo">
+        </div>
+        <div class="menu">
+            <nav>
+                <ul id="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Integrantes.html">Integrantes</a></li>
+                <li><a href="Calendario.html">Calendario</a></li>
+                <li><a href="Discografia.html">Discografia</a></li>
+                <li><a href="Historia.html">Historia</a></li>
+                <li><a href="AgregarGestor.html" class="agregar-gestor">Agregar Gestor</a></li>
+                <li><a href="../Login.html" class="cerrar-sesion">Cerrar Sesión</a></li>
+             </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="encabezado border-div">
+        <h1>Calendario de Conciertos</h1>
+    </div>
+        
+            <div id="formulario-conciertos" style="display: none;">
+                <div class="container-lg">
+                    <div class="row">
+                        <div class="col-12 shadow-lg p-3 mt-5 bg-body rounded"> 
+                            <form id="idForm">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="idTxtNombreConcierto" placeholder="Nombre del Concierto" />
+                                        <label for="idTxtNombreConcierto">
+                                        <i class="bi bi-person-circle"></i> Nombre del Concierto 
+                                    </label>
+                                        </div>
+                                    </div>  
+                                    <div class="col-lg-6">
+                                        
+                                        </div>
+                                    </div> 
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-floating">
+                                                <input type="date" class="form-control" id="idTxtFechaConcierto" placeholder="Fecha del Concierto" pattern="\d{2}-\d{2}-\d{4}"> 
+                                                <label for="idTxtFechaConcierto">
+                                                <i class="bi bi-calendar-date"></i> Fecha del Concierto
+                                                </label>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 pt-3">
+                                            <select class="form-select" aria-label="pais" id="idCmbPais"> 
+                                                <option value="0" selected>Seleccione un Pais</option>
+                                                <option value="1">El Salvador</option>
+                                                <option value="2">Honduras</option> 
+                                                <option value="3">Panama</option> 
+                                                <option value="4">Costa Rica</option> 
+                                                <option value="5">Belice</option> 
+                                                <option value="6">Nicaragua</option> 
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 pt-3">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Lugar" id="idTxtLugarConcierto"
+                                                rows="4"></textarea>
+                                                <label for="idTxtDireccion">
+                                                <i class="bi bi-geo"></i> Lugar del Concierto
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 pt-3">
+                                            <button id="idBtnAgregar" type="button" class="btn btn-success"> 
+                                                <i class="bi bi-person-plus-fill"></i> Guardar Datos
+                                            </button>
+                                            <button id="idBtnEditar" type="button" class="btn btn-primary" alt="Editar">
+                                                <i class="bi bi-pencil-square"></i>Actualizar Datos
+                                              </button>                                                                    
+                                            <button id="idBtnLimpiar" type="button" class="btn btn-danger">
+                                                <i class="bi bi-trash"></i> Limpiar formulario
+                                            </button>
+                                            <button id="idBtnAgregarPais" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModal">
+                                                <i class="bi bi-map-fill"></i> Nuevo Pais 
+                                            </button>
+                                        </div>
+                                    </div>     
+                                </div>       
+                        </div>
+                        
+                    </form>
+                    </div>
+                    <div class="col-12 shadow-1g p-3 mt-5 bg-body rounded"> 
+                        <h3>Proximos conciertos</h3>
+                        <div id="idTablaConciertos">
+                        Ninguno
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        <section class="sec" id="formulario-conciertos-usuarios" style="display: none;">
+            <div class="calendar">
+                <!-- Aquí coloca las fechas de los conciertos -->
+                <div class="event">
+                    <img src="../IMG/con1.jpg" alt="" class="Img_noticia">
+                    <div class="date"><p>Fecha: 9 de febrero de 1964</p></div>
+                    <div class="description"><p><b>Lugar:</b></p>The Ed Sullivan Show en Nueva York, Estados Unidos.</div>
+                </div>
+                <div class="event">
+                    <img src="../IMG/con2.jpg" alt="" class="Img_noticia">
+                    <div class="date"><p>Fecha: 15 de agosto de 1965</p></div>
+                    <div class="description"><p><b>Lugar:</b></p>Shea Stadium en Nueva York, Estados Unidos.</div>
+                </div>
+                <div class="event">
+                    <img src="../IMG/con3.jpg" alt="" class="Img_noticia">
+                    <div class="date"><p>Fecha: 30 de enero de 1969</p></div>
+                    <div class="description"><p><b>Lugar:</b></p>Techo de Apple Corps en Londres, Reino Unido (concierto improvisado conocido como el "concierto en la azotea").</div>
+                </div>
+                <div class="event">
+                    <img src="../IMG/con4.jpg" alt="" class="Img_noticia">
+                    <div class="date"><p>Fecha: 1 de febrero de 1963</p></div>
+                    <div class="description"><p><b>Lugar:</b></p>Maney Hall, Sutton Coldfield.</div>
+                </div>
+                <div class="event">
+                    <img src="../IMG/con5.jpg" alt="" class="Img_noticia">
+                    <div class="date"><p>Fecha: 2 de febrero de 1963</p></div>
+                    <div class="description"><p><b>Lugar:</b></p>Gaumont, Bradford.</div>
+                </div>
+                <div class="event">
+                    <img src="../IMG/con1.jpg" alt="" class="Img_noticia">
+                    <div class="date"><p>Fecha: 29 de agosto de 1966</p></div>
+                    <div class="description"><p><b>Lugar:</b></p>Candlestick Park en San Francisco, Estados Unidos (último concierto en vivo de los Beatles).</div>
+                </div>
+            </div>
+        </section>
+    
+    
+    <footer class="footer footerc">
+        <p>UDB LIC 2023 <ins><b>RL152226</ins></b>&#169; <ins><b>RC181256</ins></b>&#169; <ins><b>BS111203</ins></b>&#169;</p>
+      </footer>
+      <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="../js/calendario.js" ></script>
+</body>
+</html>

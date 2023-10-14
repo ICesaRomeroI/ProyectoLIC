@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <title>Calendario</title>
+</head>
+<body>
+    <header>
+        <div class="Dlogo">
+            <img src="../IMG/The_Beatles_logo.png" alt="logo" class="logo">
+        </div>
+        <div class="menu">
+            <nav>
+                <ul id="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Integrantes.html">Integrantes</a></li>
+                <li><a href="Calendario.html">Calendario</a></li>
+                <li><a href="Discografia.html">Discografia</a></li>
+                <li><a href="Historia.html">Historia</a></li>
+                <li><a href="AgregarGestor.html" class="agregar-gestor">Agregar Gestor</a></li>
+                <li><a href="../Login.html" class="cerrar-sesion">Cerrar Sesión</a></li>
+             </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-12 shadow-lg p-3 mt-5 bg-body rounded"> 
+                <center><h3>Agregando Nuevo Gestor</h3></center>
+                <form id="idForm">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3 col-lg-3">
+                                <input type="text" class="form-control" id="idTxtCarnet" placeholder="Carnet"/>
+                                <label for="idTxtCarnet">
+                                    <i class="fa-regular fa-id-card"></i> Contraseña
+                                </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idTxtNombreCompleto" placeholder="Nombre del Estudiante" />
+                                <label for="idTxtNombreCompleto">
+                                    <i class="bi bi-person-circle"></i> Nombre / Apellido
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="form-floating mb-3 col-lg-4">
+                                    <input type="text" class="form-control" id="idTxtDui" placeholder="DUI"/>
+                                    <label for="idTxtDui">
+                                        <i class="fa-sharp fa-solid fa-address-card" style="margin-left: 5px;"></i> DUI
+                                    </label>
+                                </div>
+                                <div class="form-floating mb-3 col-lg-5">
+                                    <input type="text" class="form-control" id="idTxtNit" placeholder="NIT"/>
+                                    <label for="idTxtNit">
+                                        <i class="fa-sharp fa-regular fa-address-card" style="margin-left: 5px;"></i> NIT
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="idTxtFechaNacimiento" placeholder="Fecha de nacimiento" pattern="\d{2}/\d{2}/\d{4}"> 
+                                <label for="idTxtFechaNacimiento">
+                                <i class="bi bi-calendar-date"></i> Fecha de Nacimiento
+                                </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idTxtCorreo" placeholder="Correo Electronico" />
+                                <label for="idTxtCorreo">
+                                    <i class="fa-solid fa-at"></i> Correo Electronico
+                                </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idTxtEdad" placeholder="Edad" />
+                                <label for="idTxtEdad">
+                                    <i class="bi bi-123"></i> Edad
+                                </label>
+                            </div>
+                            <div class="row"> 
+                                <div class="col-lg-12 pt-3">
+                                    <button id="idBtnAgregar" type="button" class="btn btn-success"> 
+                                        <i class="bi bi-person-plus-fill"></i> Guardar Gestor
+                                    </button>
+                                    <button id="idBtnMostrar" type="button" class="btn btn-warning"> 
+                                        <i class="bi bi-people"></i> Mostrar Gestores
+                                    </button>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-lg-6">
+                           
+                            <img src="../IMG/GESTOR.png" alt="Imagen" class="ms-3" width="700" height="500">
+                        </div>                       
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 shadow-1g p-3 mt-5 bg-body rounded"> 
+                <h3>Gestores registrados</h3>
+                <div id="idTablaEstudiante">
+                Ninguno
+                </div>
+        </div>
+    </div>
+</div>
+    
+    
+    <footer class="footer footerc">
+        <p>UDB LIC 2023 <ins><b>RL152226</ins></b>&#169; <ins><b>RC181256</ins></b>&#169; <ins><b>BS111203</ins></b>&#169;</p>
+      </footer>
+      <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="../js/calendario.js" ></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="CSS/Bootstrap.css">
+    <title>Login</title>
+</head>
+<body>
+    <header></header>
+    <div class="login container mt-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-4 order-md-2">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Iniciar Sesión
+                    </div>
+                    <div class="card-body">
+                        <form id="login-form">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Nombre de usuario</label>
+                                <input type="text" id="username" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" id="password" class="form-control" required>
+                            </div>
+                            <button type="submit"  id="idBtnIngresar" class="btn btn-primary">Iniciar Sesión</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 order-md-1">
+                <div class="text-center">
+                    <img src="IMG/The_Beatles_logo.png" class="custom-image rounded" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js" defer></script>
+</body>
+</html>
