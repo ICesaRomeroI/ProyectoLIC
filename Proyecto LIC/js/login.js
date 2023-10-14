@@ -2,6 +2,7 @@
 const users = [
     { username: 'usuario1', password: 'clave1', role: 'admin' },
     { username: 'usuario2', password: 'clave2', role: 'usuario' },
+    { username: 'usuario3', password: 'clave3', role: 'gestor' }
 ];
 
 const loginForm = document.getElementById('login-form');
@@ -34,6 +35,8 @@ function ingresarLogin(){
                 window.location.href = './pages/index.html';
             } else if (user.role === 'usuario') {
                 window.location.href = './pages/index.html';
+            }else if(user.role==='gestor'){
+                window.location.href='./pages/index.html';
             }
         } else {
             alert('Credenciales incorrectas. Inténtelo de nuevo.');

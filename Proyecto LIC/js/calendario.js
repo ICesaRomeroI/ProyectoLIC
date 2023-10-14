@@ -13,7 +13,14 @@ if (userRole === 'admin') {
 
     formularioConciertosusuario.style.display = 'none'
 
-} else {
+}
+else if (userRole === 'gestor'){
+    formularioConciertos.style.display = 'block'; // Muestra el formulario para gestores
+    agregarGestorMenuItem.style.display = 'none';
+
+    formularioConciertosusuario.style.display = 'none'
+}
+ else {
     formularioConciertos.style.display = 'none'; // Oculta el formulario para otros roles
     agregarGestorMenuItem.style.display = 'none';
 

@@ -7,6 +7,12 @@ const formularioConciertos = document.getElementById('formulario-conciertos');
 // Verifica el rol y muestra u oculta el formulario
 if (userRole === 'admin') {
     agregarGestorMenuItem.style.display = 'block';
-} else {
+}
+else if(userRole=='gestor')
+{
+    agregarGestorMenuItem.style.display = 'none';
+}
+
+else {
     agregarGestorMenuItem.style.display = 'none';
 }

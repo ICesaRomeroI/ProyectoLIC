@@ -34,11 +34,28 @@
                 <form id="idForm">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="form-floating mb-3 col-lg-3">
-                                <input type="text" class="form-control" id="idTxtCarnet" placeholder="Carnet"/>
-                                <label for="idTxtCarnet">
+                            <div class="row ">
+                                <div class="form-floating mb-3 col-lg-6 col-md-6">
+                                    <input type="text" class="form-control" id="idTxtUsuario" placeholder="Usuario"/>
+                                    <label for="idTxtUsuario">
+                                    <i class="fa-regular fa-id-card"></i> Usuario
+                                    </label>
+                                </div>
+                                <div class="form-floating mb-3 col-lg-6 col-md-6">
+                                    <input type="text" class="form-control" id="idTxtContraseña" placeholder="Contraseña"/>
+                                    <label for="idTxtContraseña">
                                     <i class="fa-regular fa-id-card"></i> Contraseña
-                                </label>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <select class="form-select form-floating mb-3 col-lg-3" aria-label="Role" id="idCmbRole"> 
+                                    <option value="0" selected>Seleccione Un role</option>
+                                    <option value="admi">Administrador</option>
+                                    <option value="gestor">Gestor</option> 
+                                    <option value="usuario">Usuario</option>                                     
+                                </select>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="idTxtNombreCompleto" placeholder="Nombre del Estudiante" />
@@ -46,6 +63,7 @@
                                     <i class="bi bi-person-circle"></i> Nombre / Apellido
                                 </label>
                             </div>
+                            
                             <div class="row">
                                 <div class="form-floating mb-3 col-lg-4">
                                     <input type="text" class="form-control" id="idTxtDui" placeholder="DUI"/>
