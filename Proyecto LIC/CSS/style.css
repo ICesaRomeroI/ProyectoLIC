@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rubik+Iso&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dancing+Script&family=Rubik+Iso&display=swap');
- /*
+
 #menu .cerrar-sesion {
     background-color: none;
     color: black;
@@ -10,7 +10,7 @@
     transition: background-color 0.3s ease; 
     font-size: 0.8em;
 }
-**/
+
 #menu .cerrar-sesion:hover {
     color: red;
     background-color:#b38770;
