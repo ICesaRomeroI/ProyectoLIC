@@ -1,16 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rubik+Iso&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Dancing+Script&family=Rubik+Iso&display=swap');
 
-#menu .cerrar-sesion {
-    background-color: none;
-    color: black;
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    transition: background-color 0.3s ease; 
-    font-size: 0.8em;
-}
-
 #menu .cerrar-sesion:hover {
     color: red;
     background-color:#b38770;
@@ -78,19 +68,18 @@ nav{
 
 #menu li:last-child {
     width: 15%;
-    height: 10%;
-    /*position: absolute;*/
-    margin-left: 75%;
-    margin-top: -105px;
+    position: absolute;
+    margin-left: 56.3%;
+    margin-top: 6%;
 }
-
 #menu li:nth-last-child(2) {
     width: 15%;
-    /*position: absolute;*/
-    margin-left: 55%;
-    margin-top: 1%;
-    /*padding-left: -50%;*/
+    position: absolute;
+    margin-left: 44%;
+    margin-top: 6%;
+    padding-left: -50%;
 }
+
 #menu a {
     padding: 0 4%;
     border-style: solid;
