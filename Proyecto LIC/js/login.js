@@ -35,15 +35,21 @@ function registrarUsuario() {
     // Crea un nuevo usuario con Firebase
     setDoc(doc(db, 'users', usernameInput), { password: passwordInput, type: tipo })
         .then(() => {
+            
             // Usuario creado con éxito
-            console.log('Usuario creado:', usernameInput);
+            alertify.success('Usuario creado', usernameInput);
+
+            document.getElementById('reg-username').value = "";
+            document.getElementById('reg-password').value = "";
 
         })
         .catch((error) => {
             // Maneja los errores de creación de usuario
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error('Error de creación de usuario:', errorCode, errorMessage);
+            alertify.error('Error de creación de usuario:', errorCode, errorMessage);
+            document.getElementById('reg-username').value = "";
+            document.getElementById('reg-password').value = "";
         });
 }
 
