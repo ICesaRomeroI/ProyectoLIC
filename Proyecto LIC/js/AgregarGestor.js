@@ -97,6 +97,14 @@ async function agregarGestor() {
     return;
   }
 
+  document.getElementById('error-message1').innerText = '';
+  document.getElementById('error-message2').innerText = '';
+  document.getElementById('error-message3').innerText = '';
+  document.getElementById('error-message4').innerText = '';
+  document.getElementById('error-message5').innerText = '';
+  document.getElementById('error-message11').innerText = '';
+  document.getElementById('error-messag22').innerText = '';
+
     try {
         // Crea un nuevo usuario en Firestore
         await setDoc(doc(db, 'users', usuario), {
