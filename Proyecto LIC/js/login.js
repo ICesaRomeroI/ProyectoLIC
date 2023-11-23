@@ -38,7 +38,6 @@ function registrarUsuario() {
             // Usuario creado con éxito
             console.log('Usuario creado:', usernameInput);
 
-            // Puedes agregar más lógica aquí, como redirigir al usuario a una página de bienvenida, etc.
         })
         .catch((error) => {
             // Maneja los errores de creación de usuario
@@ -82,10 +81,10 @@ async function iniciarSesion() {
 
             // Verifica la contraseña
             if (passwordInput === storedPassword) {
-                // Contraseña correcta, puedes acceder al campo 'type'
+                // Contraseña correcta, se puede acceder al campo 'type'
                 const userType = userData.type;
                 
-                console.log('Inicio de sesión exitoso. Tipo de usuario:', userType);
+                alertify.success('Inicio de sesión exitoso. Tipo de usuario:', userType);
 
                 // Almacena el rol en localStorage
                 
@@ -106,13 +105,13 @@ async function iniciarSesion() {
 
                 
             } else {
-                console.log('Contraseña incorrecta');
+                alertify.error('Contraseña incorrecta');
             }
         } else {
-            console.log('Usuario no encontrado');
+            alertify.error('Usuario no encontrado');
         }
     } catch (error) {
-        console.error('Error al iniciar sesión:', error);
+        alertify.error('Error al iniciar sesión:', error);
     }
 }
 
