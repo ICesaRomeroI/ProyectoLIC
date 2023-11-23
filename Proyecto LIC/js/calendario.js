@@ -2,7 +2,7 @@ import {
   saveVenta
 } from "./firebase.js";
 
-const userRole = localStorage.getItem('userRole');
+const userRole = localStorage.getItem('userType');
 const agregarGestorMenuItem = document.querySelector('.agregar-gestor');
 
 // Verifica el rol del usuario y muestra u oculta contenido según sea necesario
