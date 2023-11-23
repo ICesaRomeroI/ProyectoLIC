@@ -21,3 +21,18 @@ const db = getFirestore()
 export const saveVenta=(Compras) =>{
     addDoc(collection(db,'Compra'), Compras)
 }
+
+export const saveEvent=(Evento)=>{
+  addDoc(collection(db,'eventos'),Evento);
+}
+
+
+export const getEventos=()=>getDocs(collection(db,'eventos'))
+
+export const getEvento=(id)=>getDoc(doc(db,'eventos',id))
+
+export const getEventListSize=async()=>{
+  const Eventos = collection(db, "eventos");
+  const snapshot = await getCountFromServer(Eventos);
+  return snapshot.data().count;
+}
