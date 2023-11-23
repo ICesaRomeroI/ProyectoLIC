@@ -1,14 +1,14 @@
-const userRole = localStorage.getItem('userRole');
+const userType = localStorage.getItem('userType');
 const agregarGestorMenuItem = document.querySelector('.agregar-gestor');
 
 // Verifica el rol del usuario y muestra u oculta contenido según sea necesario
 const formularioConciertos = document.getElementById('formulario-conciertos');
 
 // Verifica el rol y muestra u oculta el formulario
-if (userRole === 'admin') {
+if (userType === 'admin') {
     agregarGestorMenuItem.style.display = 'block';
 }
-else if(userRole=='gestor')
+else if(userType=='gestor')
 {
     agregarGestorMenuItem.style.display = 'none';
 }
