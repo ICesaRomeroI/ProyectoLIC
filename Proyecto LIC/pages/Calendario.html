@@ -40,90 +40,57 @@
         <h1>Calendario de Conciertos</h1>
     </div>
 
-    <div id="formulario-conciertos" style="display: none;">
-        <div class="container-lg">
-            <div class="row">
-                <div class="col-12 shadow-lg p-3 mt-5 bg-body rounded">
-                    <form id="idForm">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="idTxtNombreConcierto"
-                                        placeholder="Nombre del Concierto" />
-                                    <label for="idTxtNombreConcierto">
-                                        <i class="bi bi-person-circle"></i> Nombre del Concierto
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
+    <!-- Boton Para Agregar Nuevos Eventos-->
+    <div class="ConcertAdm">
+        <nav class="navbar nav-bar sticky-top ">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex justify-content-between">
+                    <button type="button" class="btn btn-primary btn-add" data-bs-toggle="modal" style="width: 100%;"
+                        data-bs-target="#addDataModal">AGREGAR NUEVO EVENTO</button>
+                </a>
 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-floating">
-                                    <input type="date" class="form-control" id="idTxtFechaConcierto"
-                                        placeholder="Fecha del Concierto" pattern="\d{2}-\d{2}-\d{4}">
-                                    <label for="idTxtFechaConcierto">
-                                        <i class="bi bi-calendar-date"></i> Fecha del Concierto
-                                    </label>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 pt-3">
-                                <select class="form-select" aria-label="pais" id="idCmbPais">
-                                    <option value="0" selected>Seleccione un Pais</option>
-                                    <option value="1">El Salvador</option>
-                                    <option value="2">Honduras</option>
-                                    <option value="3">Panama</option>
-                                    <option value="4">Costa Rica</option>
-                                    <option value="5">Belice</option>
-                                    <option value="6">Nicaragua</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 pt-3">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Lugar" id="idTxtLugarConcierto"
-                                        rows="4"></textarea>
-                                    <label for="idTxtDireccion">
-                                        <i class="bi bi-geo"></i> Lugar del Concierto
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 pt-3">
-                                <button id="idBtnAgregar" type="button" class="btn btn-success">
-                                    <i class="bi bi-person-plus-fill"></i> Guardar Datos
-                                </button>
-                                <button id="idBtnEditar" type="button" class="btn btn-primary" alt="Editar">
-                                    <i class="bi bi-pencil-square"></i>Actualizar Datos
-                                </button>
-                                <button id="idBtnLimpiar" type="button" class="btn btn-danger">
-                                    <i class="bi bi-trash"></i> Limpiar formulario
-                                </button>
-                                <button id="idBtnAgregarPais" type="button" class="btn btn-primary"
-                                    data-bs-toggle="modal" data-bs-target="#idModal">
-                                    <i class="bi bi-map-fill"></i> Nuevo Pais
-                                </button>
-                            </div>
-                        </div>
-                </div>
             </div>
+        </nav>
+    </div>
 
-            </form>
-        </div>
-        <div class="col-12 shadow-1g p-3 mt-5 bg-body rounded">
-            <h3>Proximos conciertos</h3>
-            <div id="idTablaConciertos">
-                Ninguno
+<!--Modal para los eventos-->
+    <div class="modal fade" id="addDataModal" tabindex="-1" aria-labelledby="addDataModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" id="form">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addDataModal">Agrega Tu Proximo Evento</h1>
+                    <button type="button" id="close-btn" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Ingresa la fecha"
+                                aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <small id="name-error-msg" style="color: red;"></small>
+                        </div>
+                        <div class="form-group mt-2">
+                            <textarea class="form-control h-25" id="description" placeholder="Ingresar el Lugar"
+                                rows="3"></textarea>
+                            <small id="disc-error-msg" style="color: red;"></small>
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="file" class="form-control" id="inputGroupFile01">
+                            <small id="image-error-msg" style="color: red;"></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn submitButton w-100" id="submitdata"
+                        style="border: 1px solid black; background-color: rgb(172, 248, 193);">Agregar</button>
+                </div>
             </div>
         </div>
     </div>
+
+
+        
 
     </div>
     <section class="sec" id="formulario-conciertos-usuarios" style="display: none;">
@@ -196,6 +163,16 @@
                         los Beatles).</p>
                 </div>
                 <button type="button" class="btn btn-success col-md-12 my-3">Comprar</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Seccion de Proximos Conciertos-->
+    <section class="ConcertAdm" >
+        <div class="col-12 shadow-1g p-3 mt-5 bg-body rounded ConcertAdm">
+            <h3>Proximos conciertos</h3>
+            <div class="row ConcertAdm">
+                <div id="crud-table" class="ConcertAdm"></div>
             </div>
         </div>
     </section>
