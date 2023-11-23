@@ -1,50 +1,121 @@
-// Simula una base de datos de usuarios con sus roles y contraseñas
-const users = [
-    { username: 'usuario1', password: 'clave1', role: 'admin' },
-    { username: 'usuario2', password: 'clave2', role: 'usuario' },
-    { username: 'usuario3', password: 'clave3', role: 'gestor' }
-];
+// Importa las funciones necesarias del SDK de Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+import { getFirestore, collection, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+
+// Tu configuración de Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyDMmdGs8TpdNGyEJ3A1L2uuTAQe4hO9WFQ",
+    authDomain: "prueba-ee087.firebaseapp.com",
+    databaseURL: "https://prueba-ee087-default-rtdb.firebaseio.com",
+    projectId: "prueba-ee087",
+    storageBucket: "prueba-ee087.appspot.com",
+    messagingSenderId: "403177697333",
+    appId: "1:403177697333:web:8d93223dd435298ffec17c"
+};
+
+// Inicializa Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);  // Aquí se obtiene la instancia de Firestore
+
+
+// Función para registrar un nuevo usuario
+function registrarUsuario() {
+    // Obtén los valores del formulario
+    const usernameInput = document.getElementById('reg-username').value;
+    const passwordInput = document.getElementById('reg-password').value;
+    const tipo = "cliente";
+
+    // Validación de campos vacíos
+    if (usernameInput === "" || passwordInput === "") {
+        // Muestra un mensaje de error en el formulario
+        document.getElementById('error-messagek').innerText = 'Por favor, complete todos los campos.';
+        return;
+    }
+
+    // Crea un nuevo usuario con Firebase
+    setDoc(doc(db, 'users', usernameInput), { password: passwordInput, type: tipo })
+        .then(() => {
+            // Usuario creado con éxito
+            console.log('Usuario creado:', usernameInput);
+
+            // Puedes agregar más lógica aquí, como redirigir al usuario a una página de bienvenida, etc.
+        })
+        .catch((error) => {
+            // Maneja los errores de creación de usuario
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Error de creación de usuario:', errorCode, errorMessage);
+        });
+}
+
+// Añade un evento al botón de registro
+document.getElementById('idBtnCrearCuenta').addEventListener('click', (event) => {
+    event.preventDefault(); // Evita que el formulario se envíe automáticamente
+    registrarUsuario();
+});
 
 const loginForm = document.getElementById('login-form');
 const optionsDiv = document.getElementById('options');
 const ingresar = document.getElementById("idBtnIngresar");
 
+async function iniciarSesion() {
+    console.log('Click en el botón Ingresar');
+    // Obtén los valores del formulario
+    const usernameInput = document.getElementById('username').value;
+    const passwordInput = document.getElementById('password').value;
 
-function ingresarLogin(){
+    // Validación de campos vacíos
+    if (usernameInput === "" || passwordInput === "") {
+        // Muestra un mensaje de error en el formulario
+        document.getElementById('error-message').innerText = 'Por favor, complete todos los campos.';
+        return;
+    }
 
-    loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-    
-        const usernameInput = document.getElementById('username').value;
-        const passwordInput = document.getElementById('password').value;
-    
-        const user = users.find(user => user.username === usernameInput && user.password === passwordInput);
-    
-        if (user) {
-            // Ocultar el formulario de inicio de sesión
-            loginForm.style.display = 'none';
-            // Obtén el rol del usuario después de la autenticación
-            const userRole = user ? user.role : null;
+    try {
+        // Consulta el documento del usuario en Firestore
+        const userDocRef = doc(db, 'users', usernameInput);
+        const userDocSnapshot = await getDoc(userDocRef);
 
-            // Almacena el rol en localStorage
-            localStorage.setItem('userRole', userRole);
-            // Redirigir al usuario a la página de destino después del inicio de sesión
-           
-            // Lógica para mostrar opciones basadas en el rol del usuario
-            if (user.role === 'admin') {
-                window.location.href = './pages/index.html';
-            } else if (user.role === 'usuario') {
-                window.location.href = './pages/index.html';
-            }else if(user.role==='gestor'){
+        if (userDocSnapshot.exists()) {
+            const userData = userDocSnapshot.data();
+            const storedPassword = userData.password;
+
+            // Verifica la contraseña
+            if (passwordInput === storedPassword) {
+                // Contraseña correcta, puedes acceder al campo 'type'
+                const userType = userData.type;
+                
+                console.log('Inicio de sesión exitoso. Tipo de usuario:', userType);
+
+                // Almacena el rol en localStorage
+                
+                localStorage.setItem('userType', userType);
+
+                 // Ocultar el formulario de inicio de sesión
+                  loginForm.style.display = 'none';
+
+                if (userType === 'admin') {
+                    window.location.href = './pages/index.html';
+                } else if (userType === 'usuario') {
+                    window.location.href = './pages/index.html';
+                }else if(userType==='gestor'){
+                    window.location.href='./pages/index.html';
+                }
+
                 window.location.href='./pages/index.html';
+
+                
+            } else {
+                console.log('Contraseña incorrecta');
             }
         } else {
-            alert('Credenciales incorrectas. Inténtelo de nuevo.');
+            console.log('Usuario no encontrado');
         }
-    });
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+    }
 }
 
-
 ingresar.onclick = () =>{
-    ingresarLogin();
+    iniciarSesion();
 }
