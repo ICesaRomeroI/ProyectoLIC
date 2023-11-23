@@ -24,7 +24,7 @@ else if (userType === 'gestor') {
   formularioConciertosusuario.style.display = 'none'
 }
 else {
-  //formularioConciertos.style.display = 'none'; // Oculta el formulario para otros roles
+  formularioConciertos.style.display = 'none'; // Oculta el formulario para otros roles
   agregarGestorMenuItem.style.display = 'none';
 
   formularioConciertosusuario.style.display = 'block'
